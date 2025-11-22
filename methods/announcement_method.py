@@ -45,7 +45,6 @@ class AnnouncementMethods:
         response = requests.post(f'{Urls.BASE}{Urls.NEW_ANNOUNCEMENT}', data=payload)
         return response.status_code, response.json()
 
-
     @allure.step('Редактирование созданного объявления')
     def edit_announcement(self, token, id_add, payload):
         headers = {
@@ -53,7 +52,6 @@ class AnnouncementMethods:
         }
         response = requests.patch(f'{Urls.BASE}{Urls.ANNOUNCEMENT_EDIT}{id_add}', headers=headers, json=payload)
         return response.status_code, response.json()
-
 
     @allure.step('Редактирование объявления другого пользователя')
     def edit_announcement_of_another_user(self, token, payload):
@@ -65,7 +63,6 @@ class AnnouncementMethods:
         }
         response = requests.patch(f'{Urls.BASE}{Urls.ANNOUNCEMENT_EDIT}{id_add}', headers=headers, json=payload)
         return response.status_code, response.json()
-
 
     @allure.step('Удаление созданного объявления')
     def delete_announcement(self, token, id):
